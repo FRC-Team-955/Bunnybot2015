@@ -1,6 +1,7 @@
 package core;
 
 import components.ThreeCimGroup;
+import java.lang.Math;
 import util.DriveConfig;
 
 public class Drive {
@@ -13,13 +14,17 @@ public class Drive {
 		robotCore = core;
 	}
 	
-	public void move(double r, double v) throws Exception {
+	public void move(double r, double theta) {
 		
-		double x = robotCore.joy.getRawRightX() * Math.abs(robotCore.joy.getRawRightX());
-        double y = robotCore.joy.getRawLeftY() * Math.abs(robotCore.joy.getRawLeftY());
+		double angRad = theta*(Math.PI/180);
+		double xPos = r*Math.cos(angRad);
+		double yPos = r*Math.sin(angRad);
 		
-        double left = y - x;
-        double right = y + x;
+		double x = xPos * Math.abs(xPos);
+        double y = yPos * Math.abs(yPos);
+		
+        double left = y + x;
+        double right = y - x;
 
         leftCimGroup.set(left);
         rightCimGroup.set(right);

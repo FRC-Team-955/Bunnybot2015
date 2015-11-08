@@ -12,7 +12,8 @@ import edu.wpi.first.wpilibj.IterativeRobot;
  */
 public class Robot extends IterativeRobot {	
 	RobotCore robotCore = new RobotCore();
-	Teleop teleop = new Teleop(robotCore);
+	Drive drive = new Drive(robotCore);
+	Teleop teleop = new Teleop(robotCore, drive);
 	
     /**
      * This function is run when the robot is first started up and should be

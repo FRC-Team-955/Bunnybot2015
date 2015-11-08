@@ -32,6 +32,17 @@ public class MyJoystick extends Joystick {
             lastButtonState[i] = super.getRawButton(i + 1);
         }
     }
+	
+	public double[] getRTheta() {
+		double x = this.getRawRightX();
+		double y = this.getRawRightY();
+		
+		double r = Math.sqrt((x*x) + (y*y));
+		double theta = Math.atan2(y, x);
+		
+		double[] rTheta = {r, theta};
+		return rTheta;
+	}
     
     /**
      * Gives button value
