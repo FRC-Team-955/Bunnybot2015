@@ -2,10 +2,18 @@ package core;
 
 public class GameSpecificManipulator{
   public RobotCore core;
-  public Ramp ramp = new Ramp();
-  public Intake intake = new Intake();
+
+  public Ramp ramp;
+  public Intake intake;
   
-  public GameSpecificManipulator(RobotCore core){
-      this.core = core;
-    }
+ public GameSpecificManipulator(int chnRampOne, int chnRampTwo, int cimIntake){
+	 
+	 ramp = new Ramp(chnRampOne, chnRampTwo);
+	  intake  = new Intake(cimIntake);
+	 	 
+	 
+ } 
+  
+  
+  
 } 

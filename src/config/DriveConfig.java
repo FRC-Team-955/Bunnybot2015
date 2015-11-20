@@ -1,4 +1,4 @@
-package util;
+package config;
 
 public class DriveConfig {
 	public static final int leftC1Chn = 0;

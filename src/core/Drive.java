@@ -1,8 +1,9 @@
 package core;
 
 import components.ThreeCimGroup;
+import config.DriveConfig;
+
 import java.lang.Math;
-import util.DriveConfig;
 
 public class Drive {
 	

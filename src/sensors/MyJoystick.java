@@ -1,7 +1,7 @@
 package sensors;
 
+import config.JoyConfig;
 import edu.wpi.first.wpilibj.Joystick;
-import util.JoyConfig;
 
 public class MyJoystick extends Joystick {
 	
