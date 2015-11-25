@@ -5,6 +5,12 @@ import config.DriveConfig;
 
 import java.lang.Math;
 
+/**
+ * Core components that make the robot move
+ * 
+ * @author Trevor
+ *
+ */
 public class Drive {
 	
 	private RobotCore robotCore;
@@ -15,11 +21,17 @@ public class Drive {
 		robotCore = core;
 	}
 	
+	/**
+	 * Moves the robot in a specified direction at a specified velocity
+	 * 
+	 * @param r velocity between -1 and 1
+	 * @param theta angle of joystick in degrees
+	 * TODO talk about change to radians
+	 */
 	public void move(double r, double theta) {
 		
-		double angRad = theta*(Math.PI/180);
-		double xPos = r*Math.cos(angRad);
-		double yPos = r*Math.sin(angRad);
+		double xPos = r*Math.cos(theta);
+		double yPos = r*Math.sin(theta);
 		
 		double x = xPos * Math.abs(xPos);
         double y = yPos * Math.abs(yPos);
@@ -30,8 +42,8 @@ public class Drive {
         leftCimGroup.set(left);
         rightCimGroup.set(right);
 	}
-	
-	
+	 
+	// Enumeration for future move method for streamlining auto
 	public  static enum move {
 		LEFT, RIGHT, FORWARD, BACKWARD
 	}

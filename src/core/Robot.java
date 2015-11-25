@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
  */
 public class Robot extends IterativeRobot {	
 	RobotCore robotCore = new RobotCore();
-	Drive drive = new Drive(robotCore);
+	Drive drive = new Drive(robotCore); 
 	Teleop teleop = new Teleop(robotCore, drive);
 	
     /**
@@ -32,6 +32,7 @@ public class Robot extends IterativeRobot {
 
     /**
      * This function is called periodically during operator control
+     * Run at 50hz
      */
     public void teleopPeriodic() {
     	teleop.run();
