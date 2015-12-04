@@ -12,7 +12,10 @@ public class Ramp {
 	
 	
 	public void actuate(){
-		if( noid.get()== DoubleSolenoid.Value.kForward) noid.set(DoubleSolenoid.Value.kReverse);
-		else { noid.set(DoubleSolenoid.Value.kForward);}
+		if(noid.get()== DoubleSolenoid.Value.kForward)
+			noid.set(DoubleSolenoid.Value.kReverse);
+		
+		else 
+			noid.set(DoubleSolenoid.Value.kForward);
 	}
 }
