@@ -13,7 +13,11 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 public class Robot extends IterativeRobot {	
 	RobotCore robotCore = new RobotCore();
 	Drive drive = new Drive(robotCore); 
-	Teleop teleop = new Teleop(robotCore, drive);
+	GameSpecificManipulator gsm1 = new GameSpecificManipulator(config.GSMConfig.chnRampA1, config.GSMConfig.chnRampA2, config.GSMConfig.chnCimIntakeA);
+	GameSpecificManipulator gsm2 = new GameSpecificManipulator(config.GSMConfig.chnRampB1, config.GSMConfig.chnRampB2, config.GSMConfig.chnCimIntakeB);
+
+	
+	Teleop teleop = new Teleop(robotCore, drive, gsm1, gsm2);
 	
     /**
      * This function is run when the robot is first started up and should be

@@ -23,4 +23,21 @@ public class GameSpecificManipulator{
 		ramp = new Ramp(chnRampOne, chnRampTwo);
 		intake  = new Intake(cimIntake);
 	} 
+
+public void forward(){
+	
+	intake.forward();
+	}
+
+public void reverse(){
+	
+	intake.reverse();
+	
+	}
+
+public void actuate(){
+	
+	ramp.actuate();
+}
+
 } 
