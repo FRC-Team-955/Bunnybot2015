@@ -15,5 +15,4 @@ public class TeleopConfig {
 	public static final int btnReverse2 = 2;
 	public static final int btnActuate2 = 6;
 
-
 }

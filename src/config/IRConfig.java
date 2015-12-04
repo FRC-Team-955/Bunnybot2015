@@ -1,6 +1,6 @@
 package config;
 
-public class GSMConfig {
+public class IRConfig {
 
 public final static int chnRampA1 = 0;	
 public final static int chnRampA2 = 0;

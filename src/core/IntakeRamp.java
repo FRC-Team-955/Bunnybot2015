@@ -5,7 +5,7 @@ package core;
  * @author Trevor
  *
  */
-public class GameSpecificManipulator{
+public class IntakeRamp{
 	public RobotCore core;
 
 	public Ramp ramp;
@@ -18,26 +18,22 @@ public class GameSpecificManipulator{
    * @param chnRampTwo
    * @param cimIntake
    */
-	public GameSpecificManipulator(int chnRampOne, int chnRampTwo, int cimIntake){
-	 
-		ramp = new Ramp(chnRampOne, chnRampTwo);
+	public IntakeRamp(int chnRampOne, int chnRampTwo, int cimIntake){
+	ramp = new Ramp(chnRampOne, chnRampTwo);
 		intake  = new Intake(cimIntake);
 	} 
 
-public void forward(){
-	
-	intake.forward();
+	public void forward(){
+		intake.forward();
 	}
 
-public void reverse(){
-	
-	intake.reverse();
+	public void reverse(){
+		intake.reverse();
 	
 	}
 
-public void actuate(){
-	
-	ramp.actuate();
-}
+	public void actuate(){
+		ramp.actuate();
+	}
 
 } 
