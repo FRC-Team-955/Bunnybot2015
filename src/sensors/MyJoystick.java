@@ -48,7 +48,7 @@ public class MyJoystick extends Joystick {
 	 */
 	public double[] getRTheta() {
 		double x = this.getRawRightX();
-		double y = this.getRawRightY();
+		double y = this.getRawLeftY();
 
 		double r = Math.sqrt((x * x) + (y * y));
 		double theta = Math.atan2(y, x);

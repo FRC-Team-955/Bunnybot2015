@@ -35,5 +35,9 @@ public class IntakeRamp{
 	public void actuate(){
 		ramp.actuate();
 	}
+	
+	public void stop() {
+		intake.stop();
+	}
 
 } 
