@@ -38,9 +38,6 @@ public class Drive {
 		
         double left = y + x;
         double right = y - x;
-
-        System.out.println(left);
-        System.out.println(right);
         
         leftCimGroup.set(left);
         rightCimGroup.set(right);

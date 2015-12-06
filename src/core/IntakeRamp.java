@@ -32,8 +32,12 @@ public class IntakeRamp{
 	
 	}
 
-	public void actuate(){
-		ramp.actuate();
+	public void open(){
+		ramp.open();
+	}
+	
+	public void close(){
+		ramp.close();
 	}
 	
 	public void stop() {

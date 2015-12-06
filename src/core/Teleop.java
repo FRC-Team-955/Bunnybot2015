@@ -43,10 +43,14 @@ public class Teleop {
 	}
 
 	private void joyIR(){
-		if(robotCore.joy.getRawButton(config.TeleopConfig.btnActuate1)){			
-			ir1.actuate();
+		if(robotCore.joy.getRawButton(config.TeleopConfig.btnOpen1)){			
+			ir1.open();
 		} 
 			
+		if(robotCore.joy.getRawButton(config.TeleopConfig.btnClose1)){			
+			ir1.close();
+		} 
+		
 		if(robotCore.joy.getRawButton(config.TeleopConfig.btnReverse1)){
 			ir1.reverse();
 		} 
@@ -55,8 +59,12 @@ public class Teleop {
 			ir1.forward();
 		} 
 	
-		if(robotCore.joy.getRawButton(config.TeleopConfig.btnActuate2)){			
-			ir2.actuate();
+		if(robotCore.joy.getRawButton(config.TeleopConfig.btnOpen2)){			
+			ir2.open();
+		} 
+		
+		if(robotCore.joy.getRawButton(config.TeleopConfig.btnClose1)){			
+			ir1.close();
 		} 
 			
 		if(robotCore.joy.getRawButton(config.TeleopConfig.btnReverse2)){

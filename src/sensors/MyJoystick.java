@@ -54,7 +54,11 @@ public class MyJoystick extends Joystick {
 		double theta = Math.atan2(y, x);
 
 		double[] rTheta = { r, theta };
+
+		System.out.println("Y: " + y + "\t\tX: " + x);
+		
 		return rTheta;
+		
 	}
 
 	/**
