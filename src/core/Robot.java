@@ -1,6 +1,7 @@
 
 package core;
 
+import config.IRConfig;
 import edu.wpi.first.wpilibj.IterativeRobot;
 
 /**
@@ -13,8 +14,8 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 public class Robot extends IterativeRobot {	
 	RobotCore robotCore = new RobotCore();
 	Drive drive = new Drive(robotCore); 
-	IntakeRamp ir1 = new IntakeRamp(config.IRConfig.chnRampA1, config.IRConfig.chnRampA2, config.IRConfig.chnCimIntakeA);
-	IntakeRamp ir2 = new IntakeRamp(config.IRConfig.chnRampB1, config.IRConfig.chnRampB2, config.IRConfig.chnCimIntakeB);
+	IntakeRamp ir1 = new IntakeRamp(config.IRConfig.chnRampA1, config.IRConfig.chnRampA2, config.IRConfig.chnCimIntakeA, IRConfig.cimIntakeAIsFlipped);
+	IntakeRamp ir2 = new IntakeRamp(config.IRConfig.chnRampB1, config.IRConfig.chnRampB2, config.IRConfig.chnCimIntakeB, IRConfig.cimIntakeBIsFlipped);
 
 	
 	Teleop teleop = new Teleop(robotCore, drive, ir1, ir2);
@@ -48,5 +49,6 @@ public class Robot extends IterativeRobot {
     public void testPeriodic() {
     
     }
+    
     
 }

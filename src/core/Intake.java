@@ -8,10 +8,10 @@ import components.Cim;
 		private int cimChannel;
 		private Cim cim;
 		
-		public Intake(int cimChannel){
+		public Intake(int cimChannel, boolean isFlipped){
 		
 		this.cimChannel = cimChannel;
-		cim = new Cim(cimChannel);
+		cim = new Cim(cimChannel, isFlipped);
 		
 		}
 		

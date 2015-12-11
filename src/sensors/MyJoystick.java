@@ -55,7 +55,7 @@ public class MyJoystick extends Joystick {
 
 		double[] rTheta = { r, theta };
 
-		System.out.println("Y: " + y + "\t\tX: " + x);
+//		System.out.println("Y: " + y + "\t\tX: " + x);
 		
 		return rTheta;
 		
@@ -69,7 +69,8 @@ public class MyJoystick extends Joystick {
 	 * @return button value
 	 */
 	public boolean getButton(int button) {
-		return buttonState[button - 1];
+		return buttonState[button
+		                   - 1];
 	}
 
 	/**

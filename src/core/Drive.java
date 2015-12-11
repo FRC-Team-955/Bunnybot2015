@@ -14,8 +14,8 @@ import java.lang.Math;
 public class Drive {
 	
 	private RobotCore robotCore;
-	private ThreeCimGroup leftCimGroup = new ThreeCimGroup(DriveConfig.leftC1Chn, DriveConfig.leftC2Chn, DriveConfig.leftC3Chn);
-	private ThreeCimGroup rightCimGroup = new ThreeCimGroup(DriveConfig.rightC1Chn, DriveConfig.rightC2Chn, DriveConfig.rightC3Chn);
+	private ThreeCimGroup leftCimGroup = new ThreeCimGroup(DriveConfig.leftC1Chn, DriveConfig.leftC2Chn, DriveConfig.leftC3Chn, DriveConfig.leftC1IsFliped, DriveConfig.leftC2IsFlipped, DriveConfig.leftC3IsFlipped);
+	private ThreeCimGroup rightCimGroup = new ThreeCimGroup(DriveConfig.rightC1Chn, DriveConfig.rightC2Chn, DriveConfig.rightC3Chn, DriveConfig.rightC1IsFlipped, DriveConfig.rightC2IsFlipped, DriveConfig.rightC3IsFlipped);
 
 	public Drive (RobotCore core) {
 		robotCore = core;

@@ -10,6 +10,9 @@ public class ThreeCimGroup {
 	public Cim c1;
 	public Cim c2;
 	public Cim c3;
+	boolean m1IsReverse;
+	boolean m2IsReverse;
+	boolean m3IsReverse;
 	
 	/**
 	 * Creates grouping given three motors
@@ -17,10 +20,10 @@ public class ThreeCimGroup {
 	 * @param m2Chn
 	 * @param m3Chn
 	 */
-	public ThreeCimGroup(int m1Chn, int m2Chn, int m3Chn) {
-		c1 = new Cim(m1Chn);
-		c2 = new Cim(m2Chn);
-		c3 = new Cim(m3Chn);
+	public ThreeCimGroup(int m1Chn, int m2Chn, int m3Chn, boolean m1IsFlipped, boolean m2IsFlipped ,boolean m3IsFlipped){
+		c1 = new Cim(m1Chn, m1IsFlipped);
+		c2 = new Cim(m2Chn, m2IsFlipped);
+		c3 = new Cim(m3Chn, m3IsFlipped);
 	}
 	
 	/**

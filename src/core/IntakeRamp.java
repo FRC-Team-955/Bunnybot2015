@@ -18,9 +18,9 @@ public class IntakeRamp{
    * @param chnRampTwo
    * @param cimIntake
    */
-	public IntakeRamp(int chnRampOne, int chnRampTwo, int cimIntake){
+	public IntakeRamp(int chnRampOne, int chnRampTwo, int cimIntake, boolean isFlipped){
 	ramp = new Ramp(chnRampOne, chnRampTwo);
-		intake  = new Intake(cimIntake);
+		intake  = new Intake(cimIntake, isFlipped);
 	} 
 
 	public void forward(){

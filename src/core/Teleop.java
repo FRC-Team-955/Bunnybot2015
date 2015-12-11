@@ -1,5 +1,8 @@
 package core;
 
+import util.PDP;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
+import edu.wpi.first.wpilibj.Timer;
 /**
  * Joins user input with core components
  * @author Trevor
@@ -14,7 +17,7 @@ public class Teleop {
 	/**
 	 * Creates standard teleop object
 	 * 
-	 * @param robotCore
+	 * @param robotCorxe
 	 * @param drive
 	 */
 	public Teleop (RobotCore robotCore, Drive drive, IntakeRamp ir1,IntakeRamp ir2)
@@ -23,14 +26,13 @@ public class Teleop {
 		this.drive = drive;
 		this.ir1 = ir1;
 		this.ir2 = ir2;
-	
-	
 	}
 		
 	/**
 	 * Periodic functionality including drive
 	 */
 	public void run() {
+		
 		robotCore.joy.update();
 		joyDrive();
 		joyIR();
@@ -40,10 +42,12 @@ public class Teleop {
 		double[] rTheta = robotCore.joy.getRTheta();
 		drive.move(rTheta[0], rTheta[1]);		
 	
+		
 	}
 
 	private void joyIR(){
 		if(robotCore.joy.getRawButton(config.TeleopConfig.btnOpen1)){			
+		
 			ir1.open();
 		} 
 			
@@ -70,6 +74,7 @@ public class Teleop {
 		if(robotCore.joy.getRawButton(config.TeleopConfig.btnReverse2)){
 			ir2.reverse();
 		}
+		
 		
 		if(robotCore.joy.getRawButton(config.TeleopConfig.btnForward2)){			
 			ir2.forward();
