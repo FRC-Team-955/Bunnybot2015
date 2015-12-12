@@ -1,6 +1,7 @@
 package components;
 
 import edu.wpi.first.wpilibj.Talon;
+import config.CimConfig;
 
 /**
  * Basic motor controller for regular talon
@@ -19,13 +20,18 @@ public class Cim extends Talon {
 		this.isFlipped = isFlipped;
 	}
 	
-	public void set(double speed)
-	{
+	public void set(double speed){
 		if(isFlipped)
 			super.set(-speed);
 		
 		else
 			super.set(speed);
 			
+	}
+	
+	public void ramp(double wantSpeed){
+		if(Math.abs(wantSpeed - super.get()) > CimConfig.rampRate){
+			
+		}
 	}
 }
