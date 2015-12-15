@@ -31,8 +31,8 @@ public class ThreeCimGroup {
 	 * @param velocity between -1 to 1
 	 */
 	public void set(double velocity) {
-		c1.set(velocity);
-		c2.set(velocity);
-		c3.set(velocity);
+		c1.ramp(velocity);
+		c2.ramp(velocity);
+		c3.ramp(velocity);
 	}
 }

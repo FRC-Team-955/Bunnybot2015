@@ -29,9 +29,26 @@ public class Cim extends Talon {
 			
 	}
 	
+	public double get(){
+		
+		if(isFlipped){
+			return (-super.get());
+		}
+		
+		return super.get();
+	}
+	
 	public void ramp(double wantSpeed){
-		if(Math.abs(wantSpeed - super.get()) > CimConfig.rampRate){
+		if(Math.abs(wantSpeed - get()) > CimConfig.rampRate){
+			
+			if(wantSpeed > get())
+				set(get() +  CimConfig.rampRate);
+			
+			else
+				set(get() - CimConfig.rampRate);
 			
 		}
+		
+		set(wantSpeed);
 	}
 }

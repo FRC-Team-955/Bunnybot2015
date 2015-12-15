@@ -10,5 +10,6 @@ import sensors.*;
  *
  */
 public class RobotCore {
-	public MyJoystick joy = new MyJoystick(JoyConfig.port);
+	public MyJoystick joy = new MyJoystick(JoyConfig.drivePort);
+	public MyJoystick intakeJoy = new MyJoystick(JoyConfig.intakePort);
 }

@@ -15,5 +15,5 @@ public final static int chnPDPCimIntakeA = 12;	//non roborio side
 public final static int chnPDPCimIntakeB = 3;	//roborio side
 
 public final static boolean cimIntakeAIsFlipped = false;	//non roborio side
-public final static boolean cimIntakeBIsFlipped = false;	//roborio side
+public final static boolean cimIntakeBIsFlipped = true;	//roborio side
 }

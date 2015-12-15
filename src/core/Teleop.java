@@ -1,8 +1,5 @@
 package core;
 
-import util.PDP;
-import edu.wpi.first.wpilibj.PowerDistributionPanel;
-import edu.wpi.first.wpilibj.Timer;
 /**
  * Joins user input with core components
  * @author Trevor
@@ -13,7 +10,6 @@ public class Teleop {
 	private Drive drive;
 	private IntakeRamp ir1;
 	private IntakeRamp ir2;
-
 	/**
 	 * Creates standard teleop object
 	 * 
@@ -46,35 +42,33 @@ public class Teleop {
 	}
 
 	private void joyIR(){
-		if(robotCore.joy.getRawButton(config.TeleopConfig.btnOpen1)){			
-		
+		if(robotCore.intakeJoy.getRawButton(config.TeleopConfig.btnOpen1)){			
 			ir1.open();
 		} 
 			
-		if(robotCore.joy.getRawButton(config.TeleopConfig.btnClose1)){			
+		if(robotCore.intakeJoy.getRawButton(config.TeleopConfig.btnClose1)){			
 			ir1.close();
 		} 
 		
-		if(robotCore.joy.getRawButton(config.TeleopConfig.btnReverse1)){
+		if(robotCore.intakeJoy.getRawButton(config.TeleopConfig.btnReverse1)){
 			ir1.reverse();
 		} 
 		
-		if(robotCore.joy.getRawButton(config.TeleopConfig.btnForward1)){			
+		if(robotCore.intakeJoy.getRawButton(config.TeleopConfig.btnForward1)){			
 			ir1.forward();
 		} 
 	
-		if(robotCore.joy.getRawButton(config.TeleopConfig.btnOpen2)){			
+		if(robotCore.intakeJoy.getRawButton(config.TeleopConfig.btnOpen2)){			
 			ir2.open();
 		} 
 		
-		if(robotCore.joy.getRawButton(config.TeleopConfig.btnClose1)){			
+		if(robotCore.intakeJoy.getRawButton(config.TeleopConfig.btnClose1)){			
 			ir1.close();
 		} 
 			
-		if(robotCore.joy.getRawButton(config.TeleopConfig.btnReverse2)){
+		if(robotCore.intakeJoy.getRawButton(config.TeleopConfig.btnReverse2)){
 			ir2.reverse();
 		}
-		
 		
 		if(robotCore.joy.getRawButton(config.TeleopConfig.btnForward2)){			
 			ir2.forward();

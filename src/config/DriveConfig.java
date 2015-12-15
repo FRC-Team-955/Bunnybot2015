@@ -20,7 +20,7 @@ public class DriveConfig {
 	public static final boolean leftC2IsFlipped = false;
 	public static final boolean leftC3IsFlipped = false;
 	
-	public static final boolean rightC1IsFlipped = false;
-	public static final boolean rightC2IsFlipped = false;
-	public static final boolean rightC3IsFlipped = false;
+	public static final boolean rightC1IsFlipped = true;
+	public static final boolean rightC2IsFlipped = true;
+	public static final boolean rightC3IsFlipped = true;
 }
