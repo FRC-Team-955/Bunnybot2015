@@ -70,15 +70,15 @@ public class Teleop {
 			ir2.reverse();
 		}
 		
-		if(robotCore.joy.getRawButton(config.TeleopConfig.btnForward2)){			
+		if(robotCore.intakeJoy.getRawButton(config.TeleopConfig.btnForward2)){			
 			ir2.forward();
 		} 
 		
-		if(robotCore.joy.getRawButton(config.TeleopConfig.btnStop1)){			
+		if(robotCore.intakeJoy.getRawButton(config.TeleopConfig.btnStop1)){			
 			ir1.stop();
 		} 
 		
-		if(robotCore.joy.getRawButton(config.TeleopConfig.btnStop2)){			
+		if(robotCore.intakeJoy.getRawButton(config.TeleopConfig.btnStop2)){			
 			ir2.stop();
 		} 
 	

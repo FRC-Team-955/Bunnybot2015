@@ -16,11 +16,11 @@ import components.Cim;
 		}
 		
 	public void forward(){
-		cim.set(config.IntakeConfig.cimSpeed);
+		cim.set(config.IntakeConfig.intakeCimSpeed);
 	}
 	
 	public void reverse(){
-		cim.set(-1 *config.IntakeConfig.cimSpeed);
+		cim.set(-1 *config.IntakeConfig.outtakeCimSpeed);
 	}
 	
 	public void stop() {

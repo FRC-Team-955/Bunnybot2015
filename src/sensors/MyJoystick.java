@@ -47,7 +47,7 @@ public class MyJoystick extends Joystick {
 	 * @return magnitude and angle of joystick
 	 */
 	public double[] getRTheta() {
-		double x = this.getRawRightX();
+		double x = (this.getRawRightX())*(-0.75);
 		double y = this.getRawLeftY();
 
 		double r = Math.sqrt((x * x) + (y * y));
