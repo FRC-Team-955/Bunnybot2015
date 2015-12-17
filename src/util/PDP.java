@@ -8,78 +8,29 @@ import config.PDPConfig;
  * @author ROBOTICS
  *
  */
-public class PDP {
-	private PowerDistributionPanel pdp = new PowerDistributionPanel();
-	private Timer tm = new Timer();
-	private double[] current = new double[PDPConfig.currentArrayLength]; //TODO Make config value
-	private double dI = 0;
-	private double dV = 0;
-	
-	public PDP(){
-		for(int i = 0; i < current.length; i++){
-			current[i] = 0;
-		}
+public class PDP extends PowerDistributionPanel {
+
+	private double[] genCurrentArray(int channel){
+		double[] currentArray;
+		
+		currentArray = new double[config.PDPConfig.currentArrayLength];
+		for (int i = 0; i < currentArray.length; i++) {
+			currentArray[i] = super.getCurrent(channel);
+		}	
+		return currentArray;
 	}
 	
-	public void updateCurrent(int channel){
-		
-		for(int i = 1; i < current.length; i++){
-			current[i - 1] = current[i];
-		}
-		
-		current[current.length-1] = getCurrent(channel);
-	}
+	public double[] genDCurrent(int channel){
 	
-	/**
-	 * Gets data from the PDP in the form of an array, change in voltage and current are time based
-	 * @param channel the channel on the PDP that data is being retrieved from
-	 * @param time amount of time the function will measure change in voltage and current for
-	 * @return double array with the format [voltage, current, power, delta current, delta voltage]
-	 */
-	public double[] getData(int channel, double time){
-		tm.start();
+		double[] currentArray = genCurrentArray(channel);
 		
-		if(tm.get() < time){
-			dI += getCurrent(channel);
-			dV += getVoltage();
+		double[] DCurrent = new double[config.PDPConfig.currentArrayLength];
+		
+		for (int i = 1; i < DCurrent.length; i++) {
+			DCurrent[i] = currentArray[i] - currentArray[i-1];
 		}
 		
-		else{
-			tm.stop();
-			tm.reset();
-			dI = 0;
-			dV = 0;
-		}
-		
-		return new double[] {getVoltage(),getCurrent(channel),getPower(channel),dI,dV};
-	}
-	
-	/**
-	 * Gets data from the PDP in the form of an array, change in voltage and current are cycles based
-	 * @param channel the channel on the PDP that data is being retrieved from
-	 * @param cycles amount of iterations of code the function will measure change in voltage and current for
-	 * @return double array with the format [voltage, current, power, delta current, delta voltage]
-	 */
-	public double[] getData(int channel, int cycles){
-		for(int i = 0; i < cycles; i++)
-		{
-			dI += getCurrent(channel);
-			dV += getVoltage();
-		}
-		
-		dI = 0;
-		dV = 0;
-		
-		return new double[] {getVoltage(),getCurrent(channel),getPower(channel),dI,dV};
-	}
-	
-	public boolean needStop(int channel){
-		if(current[(int)(current.length/2)] - current[(int)(current.length/2) + 1] > PDPConfig.minCurrentJump && current[(int)(current.length/2)] - current[(int)(current.length/2) + 1] < PDPConfig.maxCurrentJump){
-			if(current[(int)(current.length/2) + 1] > PDPConfig.minCurrentValue)
-				return true;
-		}
-		
-		return false; 
+		return DCurrent;
 	}
 	
 	/**
@@ -87,7 +38,7 @@ public class PDP {
 	 * @return the voltage from the PDP
 	 */
 	public double getVoltage(){
-		return pdp.getVoltage();
+		return super.getVoltage();
 	}
 	
 	/**
@@ -96,7 +47,7 @@ public class PDP {
 	 * @return the current from the channel
 	 */
 	public double getCurrent(int channel){
-		return pdp.getCurrent(channel);
+		return super.getCurrent(channel);
 	}
 	
 	/**
