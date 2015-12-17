@@ -1,6 +1,7 @@
 package util;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.Timer;
+import config.PDPConfig;
 
 /**
  * Gets data from the PDP
@@ -10,8 +11,24 @@ import edu.wpi.first.wpilibj.Timer;
 public class PDP {
 	private PowerDistributionPanel pdp = new PowerDistributionPanel();
 	private Timer tm = new Timer();
+	private double[] current = new double[PDPConfig.currentArrayLength]; //TODO Make config value
 	private double dI = 0;
 	private double dV = 0;
+	
+	public PDP(){
+		for(int i = 0; i < current.length; i++){
+			current[i] = 0;
+		}
+	}
+	
+	public void updateCurrent(int channel){
+		
+		for(int i = 1; i < current.length; i++){
+			current[i - 1] = current[i];
+		}
+		
+		current[current.length-1] = getCurrent(channel);
+	}
 	
 	/**
 	 * Gets data from the PDP in the form of an array, change in voltage and current are time based
@@ -54,6 +71,15 @@ public class PDP {
 		dV = 0;
 		
 		return new double[] {getVoltage(),getCurrent(channel),getPower(channel),dI,dV};
+	}
+	
+	public boolean needStop(int channel){
+		if(current[(int)(current.length/2)] - current[(int)(current.length/2) + 1] > PDPConfig.minCurrentJump && current[(int)(current.length/2)] - current[(int)(current.length/2) + 1] < PDPConfig.maxCurrentJump){
+			if(current[(int)(current.length/2) + 1] > PDPConfig.minCurrentValue)
+				return true;
+		}
+		
+		return false; 
 	}
 	
 	/**
