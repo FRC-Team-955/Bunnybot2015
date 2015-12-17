@@ -1,3 +1,4 @@
+
 package core;
 
 import edu.wpi.first.wpilibj.Timer;
@@ -27,7 +28,7 @@ public class Auto {
 		switch(counter){
 			
 			case 0:{
-				driveBackwards();
+				move(AutoConfig.disDriveBackwards,1,270);
 				break;
 			}
 			
@@ -37,12 +38,17 @@ public class Auto {
 			}
 			
 			case 2:{
-				runIntake1();
+				move(AutoConfig.disDriveForward,1,90);
 				break;
 			}
 			
 			case 3:{
-				driveForward();
+				runIntake1();
+				break;
+			}
+			
+			case 4:{
+				move(AutoConfig.disDriveForwardEnd, 1, 90);
 				break;
 			}
 			
@@ -89,32 +95,16 @@ public class Auto {
 	/**
 	 * Drives forward until at a predetermined distance
 	 */
-	private void driveForward(){
+	private void move(double distance, double velocity, double angle){
 		//Checks if both sides are within an acceptable range of the target
-		if(Math.abs(robotcore.encRight.getDistance() - AutoConfig.disDriveForward) < AutoConfig.maxEncTolerance && Math.abs(robotcore.encLeft.getDistance() - AutoConfig.disDriveForward) < AutoConfig.maxEncTolerance){
-			drive.move(AutoConfig.disDriveForward, 0);
-		}
-		
-		else{
-			drive.move(0, 0);
-			counter++;
-		}
-			
-	}
-	
-	/**
-	 * Drives backwards until at a predetermined distance
-	 */
-	private void driveBackwards(){
-		//Checks if both sides are within an acceptable range of the target
-		if(Math.abs(robotcore.encRight.getDistance() - AutoConfig.disDriveBackwards) < AutoConfig.maxEncTolerance && Math.abs(robotcore.encLeft.getDistance() - AutoConfig.disDriveBackwards) < AutoConfig.maxEncTolerance){
-			drive.move(AutoConfig.disDriveBackwards, 0);
-		}
-		
-		else{
-			drive.move(0, 0);
-			counter++;
-		}
+//		if(Math.abs(robotcore.encRight.getDistance() - distance) < AutoConfig.maxEncTolerance && Math.abs(robotcore.encLeft.getDistance() - distance) < AutoConfig.maxEncTolerance){
+//			drive.move(velocity, angle);
+//		}
+//		
+//		else{
+//			drive.move(0, 0);
+//			counter++;
+//		}
 			
 	}
 	
